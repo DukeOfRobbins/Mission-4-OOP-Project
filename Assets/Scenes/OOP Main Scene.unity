@@ -1378,14 +1378,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035872665}
-  m_LocalRotation: {x: 1.110223e-17, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46523952, y: 0, z: -12.3}
+  m_LocalRotation: {x: 9.256827e-18, y: 0.5520956, z: -6.1294927e-18, w: 0.8337808}
+  m_LocalPosition: {x: 0.46523952, y: 0, z: -43.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 67.022, z: 0}
 --- !u!195 &1035872672
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1420,8 +1420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad235a884f47f649ac93547abe07305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 1035872672}
-  target: {fileID: 290383463}
+  vehicle: {fileID: 1035872672}
+  target: {fileID: 290383467}
 --- !u!1 &1122341304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1598,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-119046
+  m_Name: pb_Mesh38692
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
