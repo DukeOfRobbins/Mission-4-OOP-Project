@@ -9,12 +9,15 @@ public class VehicleMainClass : MonoBehaviour
 
     public Transform currentVehicle;
 
+    public Transform currentTarget;
+
     public Transform target;
 
     public GameObject highlighter;
 
     public int speed;
 
+    // ENCAPSULATION - Adding a Property to use for each Vehicle
     public int VehicleSpeed { get{return speed;} set{speed = value; } }
 
     private void Start()
@@ -23,11 +26,13 @@ public class VehicleMainClass : MonoBehaviour
         highlighter.SetActive(false);
         }
 
-    // Virtual method that can be overidden depending on vehicle selected
+    // OVERRIDING/POLYMORPHISM - Virtual method that can be overidden depending on vehicle selected
     public virtual void MoveTank()
         {
-        vehicle.SetDestination(target.transform.position);
+        currentTarget = target;
+        vehicle.SetDestination(currentTarget.transform.position);
         }
+    // ABSTRACTION - Providing methods to call potentially, in other scripts and provide functionality with one call
 
     public void SelectVehicle()
         {
@@ -44,10 +49,15 @@ public class VehicleMainClass : MonoBehaviour
                     currentVehicle = vehicleHit.transform;
                     highlighter.SetActive(true);
                     }
+                else
+                    {
+                    highlighter.SetActive(false);
+                    }
                 }
             }
         }
 
+    // ABSTRACTION
     public void SelectDestination()
         {
         RaycastHit DestHit;

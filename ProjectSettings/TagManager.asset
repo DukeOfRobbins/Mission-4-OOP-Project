@@ -9,6 +9,7 @@ TagManager:
   - Road
   - Tank
   - SupplyDump
+  - Truck
   layers:
   - Default
   - TransparentFX
