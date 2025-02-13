@@ -4,14 +4,27 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class VehicleMainClass : MonoBehaviour
-{
+    {
     public NavMeshAgent vehicle;
 
     public Transform currentVehicle;
 
     public Transform target;
 
-    public void MoveTank()
+    public GameObject highlighter;
+
+    public int speed;
+
+    public int VehicleSpeed { get{return speed;} set{speed = value; } }
+
+    private void Start()
+        {
+        speed = 0;
+        highlighter.SetActive(false);
+        }
+
+    // Virtual method that can be overidden depending on vehicle selected
+    public virtual void MoveTank()
         {
         vehicle.SetDestination(target.transform.position);
         }
@@ -29,6 +42,25 @@ public class VehicleMainClass : MonoBehaviour
                 if (vehicleHit.transform.CompareTag("Tank"))
                     {
                     currentVehicle = vehicleHit.transform;
+                    highlighter.SetActive(true);
+                    }
+                }
+            }
+        }
+
+    public void SelectDestination()
+        {
+        RaycastHit DestHit;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out DestHit, 1000))
+            {
+            if (Input.GetMouseButtonDown(1))
+                {
+                if (DestHit.transform.CompareTag("SupplyDump"))
+                    {
+                    target = DestHit.transform;
                     MoveTank();
                     }
                 }
@@ -37,7 +69,7 @@ public class VehicleMainClass : MonoBehaviour
 
     private void Update()
         {
-        //MoveTank();
         SelectVehicle();
+        SelectDestination();
         }
     }
